@@ -1,7 +1,7 @@
 [
     {
         "title": "1. Projekt erstellen",
-        "task": "<p>Öffne die Kommandozeile und erstelle ein neues SvelteKit-Projekt:</p><pre><code>npx sv create my-app</code></pre><>",
+        "task": "<p>Öffne die Kommandozeile und erstelle ein neues SvelteKit-Projekt:</p><pre><code>npx sv create my-app</code></pre><i>Nutze zur Konfiguration Typescript, Prettier, Vitest und Playwright</i>",
         "references": ["https://svelte.dev/docs/kit/creating-a-project"]
     },
     {

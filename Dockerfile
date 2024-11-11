@@ -2,10 +2,17 @@ FROM node:22
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
 
-RUN npm ci
+RUN npm install
+
+COPY . .
 
 RUN npm run build
 
-CMD ["node", "build/index.js"]
+EXPOSE 2551
+
+ENV PORT=2551
+
+
+CMD ["npm", "run", "preview"]
