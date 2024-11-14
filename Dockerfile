@@ -12,7 +12,4 @@ RUN npm run build
 
 EXPOSE 2551
 
-ENV PORT=2551
-
-
 CMD ["npm", "run", "preview"]

@@ -1,88 +1,52 @@
 <script lang="ts">
     import steps from '$lib/steps.json';
+    import { goto } from '$app/navigation';
 
-    let step = $state(0);
-
-    function increase() {
-        if(steps.length -1 > step) {
-            step++;
-        }
-    }
-
-    function decrease() {
-        if(step > 0) {
-            step--;
-        }
+    function redirectToDynamicResource(module: string) {
+        goto(`/module/${module}`);
     }
 </script>
 
-<div class="task-container">
-    <div class="title">{steps[step].title}</div>
-    <div class="task">{@html steps[step].task}</div>
-    <div class="references">
-        {#each steps[step].references as reference}
-            <a class="reference" href={reference} target="_blank" aria-label="reference link">{reference}</a>
-        {/each}
-    </div>
-    <div class="buttons">
-        {#if step != 0}
-            <button onclick={decrease} class="back">back</button>
-        {:else}
-            <button onclick={decrease} class="back" disabled style="opacity: 0.4">back</button>
-        {/if}
-        {#if steps.length -1 > step}
-            <button onclick={increase} class="next">next</button>
-        {:else}
-            <button onclick={increase} class="next" disabled style="opacity: 0.4">next</button>
-        {/if}
-    </div>
+<div class="container">
+    {#each steps as module}
+    <button class="module" onclick={() => redirectToDynamicResource(module.title)} aria-label="Modul: {module.title}">
+        <div class="title">{module.title}</div>
+        <div class="description">{module.description}</div>
+        <div class="count">{module.steps.length} Schritte in diesem Modul</div>
+    </button>
+{/each}
 </div>
 
 <style>
-    .task-container {
-        width: 500px;
+
+    .container {
+        margin-top: 10px;
+        width: 100vw;
         height: auto;
-        background-color: rgb(51, 51, 62);
-        border-radius: 20px;
         display: flex;
         flex-direction: column;
-        padding: 15px;
-    }
-
-    .title {
-        font-weight: 700;
-        font-size: 24px;
-        margin-bottom: 5px;
-    }
-
-    button {
-        margin: 0;
-        width: 60px;
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content:space-between;
-        margin-top: 10px;
-    }
-
-    .references {
-        display: flex;
-        flex-direction: row;
-        margin-top: 10px;
-    }
-
-    .reference {
-        height: 30px;
-        background-color: #464656;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
         align-items: center;
-        text-decoration: none;
-        color: #9a9ac1;
-        border-radius: 10px;
     }
 
+    .module {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(51, 51, 62);
+        width: clamp(300px, 50vw, 800px);
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+    }
+
+    .module .title {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .module .count {
+        margin-top: 5px;
+        font-style: italic;
+        opacity: 0.8;
+    }
 </style>

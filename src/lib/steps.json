@@ -1,62 +1,68 @@
 [
     {
-        "title": "1. Projekt erstellen",
-        "task": "<p>Öffne die Kommandozeile und erstelle ein neues SvelteKit-Projekt:</p><pre><code>npx sv create my-app</code></pre><i>Nutze zur Konfiguration Typescript, Prettier, Vitest und Playwright</i>",
-        "references": ["https://svelte.dev/docs/kit/creating-a-project"]
-    },
-    {
-        "title": "2. In das Projektverzeichnis wechseln",
-        "task": "<p>Wechsle in das Projektverzeichnis, um weitere Befehle ausführen zu können:</p><pre><code>cd my-app</code></pre>",
-        "references": []
-    },
-    {
-        "title": "3. Abhängigkeiten installieren",
-        "task": "<p>Installiere die notwendigen Abhängigkeiten mit folgendem Befehl:</p><pre><code>npm install</code></pre>",
-        "references": []
-    },
-    {
-        "title": "4. Entwicklungsserver starten",
-        "task": "<p>Starte den Entwicklungsserver, um deine Anwendung lokal zu testen:</p><pre><code>npm run dev</code></pre><p>Öffne <code>http://localhost:5173</code> in deinem Browser, um die Anwendung zu sehen.</p>",
-        "references": []
-    },
-    {
-        "title": "5. Hauptseite bearbeiten",
-        "task": "<p>Öffne die Datei <code>src/routes/+page.svelte</code>. Hier wirst du ein Eingabefeld erstellen und eine einfache Bindung hinzufügen.</p>",
-        "references": []
-    },
-    {
-        "title": "6. Variable für Bindung erstellen",
-        "task": "<p>Füge im Skriptbereich von <code>+page.svelte</code> eine Variable hinzu, an die das Eingabefeld gebunden wird:</p><pre><code>&lt;script&gt;<br> let name = $state('');<br>&lt;/script&gt;</code></pre>",
-        "references": ["https://svelte.dev/docs/svelte/$state"]
-    },
-    {
-        "title": "7. Eingabefeld mit Bindung hinzufügen",
-        "task": "<p>Erstelle ein Eingabefeld in der <code>+page.svelte</code>-Datei und binde es an die <code>name</code>-Variable:</p><pre><code>&lt;input type='text' bind:value={name} placeholder='Dein Name' /&gt;<br>&lt;p&gt;Hallo {name}!&lt;/p&gt;</code></pre>",
-        "references": ["https://svelte.dev/docs/svelte/bind"]
-    },
-    {
-        "title": "8. Link zur Seite /ideas hinzufügen",
-        "task": "<p>Füge auf der Startseite einen Link hinzu, der zur <code>/ideas</code>-Seite führt:</p><pre><code>&lt;a href='/ideas'&gt;Zu Ideen gehen&lt;/a&gt;</code></pre>",
-        "references": []
-    },
-    {
-        "title": "9. Neue Seite /ideas erstellen",
-        "task": "<p>Erstelle eine neue Datei <code>src/routes/ideas/+page.svelte</code>. Diese Seite wird später deine Ideen enthalten.</p>",
-        "references": ["https://svelte.dev/docs/kit/routing#page-page.svelte"]
-    },
-    {
-        "title": "10. Inhalt zur Seite /ideas hinzufügen",
-        "task": "<p>Öffne <code>+page.svelte</code> in <code>src/routes/ideas</code> und füge einen Titel und eine Nachricht hinzu:</p><pre><code>&lt;h1&gt;Ideen-Seite&lt;/h1&gt;<br>&lt;p&gt;Hier kannst du deine Ideen aufschreiben.&lt;/p&gt;</code></pre>",
-        "references": []
-    },
-    {
-        "title": "11. Navigation zur Startseite auf /ideas hinzufügen",
-        "task": "<p>Füge auf der <code>/ideas</code>-Seite eine Schaltfläche hinzu, um zur Startseite zurückzukehren:</p><pre><code>&lt;script&gt;<br>import { goto } from '$app/navigation';<br>&lt;/script&gt;<br>&lt;button on:click={() => goto('/')}&gt;Zurück zur Startseite&lt;/button&gt;</code></pre>",
-        "references": ["https://svelte.dev/docs/kit/$app-navigation#goto"]
-    },
-    {
-        "title": "12. Projekt testen",
-        "task": "<p>Öffne die Seite <code>http://localhost:5173</code> im Browser und überprüfe die Funktionalitäten:</p><ul><li>Gib deinen Namen ein und beobachte die Bindung.</li><li>Klicke auf den Link zu <code>/ideas</code>.</li><li>Nutze die Schaltfläche auf der <code>/ideas</code>-Seite, um zurück zur Startseite zu navigieren.</li></ul>",
-        "references": []
+        "title": "Erstes Projekt mit Svelte",
+        "description": "Hier lernst du die basics von Svelte(kit) und erstellst ein kleines Projekt",
+        "steps": [
+            {
+                "title": "1. Projekt erstellen",
+                "task": "<p>Öffne die Kommandozeile und erstelle ein neues SvelteKit-Projekt:</p><pre><code>npx sv create my-app</code></pre><i>Nutze zur Konfiguration Typescript, Prettier, Vitest und Playwright</i>",
+                "references": ["https://svelte.dev/docs/kit/creating-a-project"]
+            },
+            {
+                "title": "2. In das Projektverzeichnis wechseln",
+                "task": "<p>Wechsle in das Projektverzeichnis, um weitere Befehle ausführen zu können:</p><pre><code>cd my-app</code></pre>",
+                "references": []
+            },
+            {
+                "title": "3. Abhängigkeiten installieren",
+                "task": "<p>Installiere die notwendigen Abhängigkeiten mit folgendem Befehl:</p><pre><code>npm install</code></pre>",
+                "references": []
+            },
+            {
+                "title": "4. Entwicklungsserver starten",
+                "task": "<p>Starte den Entwicklungsserver, um deine Anwendung lokal zu testen:</p><pre><code>npm run dev</code></pre><p>Öffne <code>http://localhost:5173</code> in deinem Browser, um die Anwendung zu sehen.</p>",
+                "references": []
+            },
+            {
+                "title": "5. Hauptseite bearbeiten",
+                "task": "<p>Öffne die Datei <code>src/routes/+page.svelte</code>. Hier wirst du ein Eingabefeld erstellen und eine einfache Bindung hinzufügen.</p>",
+                "references": []
+            },
+            {
+                "title": "6. Variable für Bindung erstellen",
+                "task": "<p>Füge im Skriptbereich von <code>+page.svelte</code> eine Variable hinzu, an die das Eingabefeld gebunden wird:</p><pre><code>&lt;script&gt;<br> let name = $state('');<br>&lt;/script&gt;</code></pre>",
+                "references": ["https://svelte.dev/docs/svelte/$state"]
+            },
+            {
+                "title": "7. Eingabefeld mit Bindung hinzufügen",
+                "task": "<p>Erstelle ein Eingabefeld in der <code>+page.svelte</code>-Datei und binde es an die <code>name</code>-Variable:</p><pre><code>&lt;input type='text' bind:value={name} placeholder='Dein Name' /&gt;<br>&lt;p&gt;Hallo {name}!&lt;/p&gt;</code></pre>",
+                "references": ["https://svelte.dev/docs/svelte/bind"]
+            },
+            {
+                "title": "8. Link zur Seite /ideas hinzufügen",
+                "task": "<p>Füge auf der Startseite einen Link hinzu, der zur <code>/ideas</code>-Seite führt:</p><pre><code>&lt;a href='/ideas'&gt;Zu Ideen gehen&lt;/a&gt;</code></pre>",
+                "references": []
+            },
+            {
+                "title": "9. Neue Seite /ideas erstellen",
+                "task": "<p>Erstelle eine neue Datei <code>src/routes/ideas/+page.svelte</code>. Diese Seite wird später deine Ideen enthalten.</p>",
+                "references": ["https://svelte.dev/docs/kit/routing#page-page.svelte"]
+            },
+            {
+                "title": "10. Inhalt zur Seite /ideas hinzufügen",
+                "task": "<p>Öffne <code>+page.svelte</code> in <code>src/routes/ideas</code> und füge einen Titel und eine Nachricht hinzu:</p><pre><code>&lt;h1&gt;Ideen-Seite&lt;/h1&gt;<br>&lt;p&gt;Hier kannst du deine Ideen aufschreiben.&lt;/p&gt;</code></pre>",
+                "references": []
+            },
+            {
+                "title": "11. Navigation zur Startseite auf /ideas hinzufügen",
+                "task": "<p>Füge auf der <code>/ideas</code>-Seite eine Schaltfläche hinzu, um zur Startseite zurückzukehren:</p><pre><code>&lt;script&gt;<br>import { goto } from '$app/navigation';<br>&lt;/script&gt;<br>&lt;button on:click={() => goto('/')}&gt;Zurück zur Startseite&lt;/button&gt;</code></pre>",
+                "references": ["https://svelte.dev/docs/kit/$app-navigation#goto"]
+            },
+            {
+                "title": "12. Projekt testen",
+                "task": "<p>Öffne die Seite <code>http://localhost:5173</code> im Browser und überprüfe die Funktionalitäten:</p><ul><li>Gib deinen Namen ein und beobachte die Bindung.</li><li>Klicke auf den Link zu <code>/ideas</code>.</li><li>Nutze die Schaltfläche auf der <code>/ideas</code>-Seite, um zurück zur Startseite zu navigieren.</li></ul>",
+                "references": []
+            }
+        ]
     }
 ]
