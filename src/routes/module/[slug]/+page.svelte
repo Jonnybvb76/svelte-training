@@ -2,6 +2,12 @@
     import { tweened } from 'svelte/motion';
     import { cubicOut } from 'svelte/easing';
     import type { PageData } from './$types';
+    import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+
+    
+    let ready = $state(false);
+    onMount(() => ready = true);
 
     let step = $state(0);
 
@@ -32,7 +38,8 @@
 </script>
 
 <div class="container">
-    <div class="task-container">
+    {#if ready}
+    <div class="task-container" transition:fade>
         <div class="content">
             {#if data && data.data[step]}
                 <div class="title">{data.data[step].title}</div>
@@ -54,6 +61,7 @@
     <div class="progress-container">
         <progress value={$progress}></progress>
     </div>
+    {/if}
 </div>
 
 
